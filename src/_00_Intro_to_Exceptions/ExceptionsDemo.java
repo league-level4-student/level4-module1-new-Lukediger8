@@ -1,5 +1,7 @@
 package _00_Intro_to_Exceptions;
 
+import javax.swing.JOptionPane;
+
 public class ExceptionsDemo {
 
     /*
@@ -36,15 +38,27 @@ public class ExceptionsDemo {
      * Despite this, you can still make a try/catch and attempt to catch them.
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // 1. Create a try/catch block (Hint: type "try" and ctrl + space).
-
+    	try {
+			testFiveOrGreater(3);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
         /*
          * 2. Call the testFiveOrGreater method with a value less than 5 inside
          * the try block.
          */
-
+    	try {
+			testPositive(-4);
+		} catch (NegativeNumberException e) {
+			// TODO: handle exception
+			NegativeNumberException.scarypopup();
+		} finally {
+			JOptionPane.showMessageDialog(null, "Yo stuff fine boi tough 😭");
+		}
         /*
          * 3. Call e.printStackTrace() in the catch block. This prints out the
          * last methods called during your program's execution to the console in
@@ -87,7 +101,12 @@ public class ExceptionsDemo {
      * 
      * 10. Try running the program. Did it show a pop-up?
      */
-
+    public static void testPositive(int x) throws Exception {
+        if (x < 0) {
+            // This is where the Exception is actually thrown.
+            throw new NegativeNumberException();
+        }
+    }
     /*
      * 11. Add a finally block after your catch block(Hint: finally{}). A
      * finally block always occurs after a try/catch block even if no exception
