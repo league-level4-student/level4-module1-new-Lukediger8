@@ -46,11 +46,11 @@ public class PolymorphismDemo {
          * declared as an Animal on the left side.
          */
 
-        Animal animal = new Animal();
-
+        Animal animal = new Dog();
+        
         /*
          * 2. Call the speak method and run the program.
-         * 
+         s
          * Even though the variable was declared as an Animal, at run time it
          * will behave like whatever Animal subclass it was instantiated as.
          */
