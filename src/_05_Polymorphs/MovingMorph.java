@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Timer;
 
 public class MovingMorph extends Polymorph{
+	int speed;
 
 	public MovingMorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
@@ -18,8 +19,13 @@ public class MovingMorph extends Polymorph{
 	public void update() {
 		// TODO Auto-generated method stub
 		
-		x+=5;
-		
+		if(x>=900) {
+			speed = -1;
+		}
+		if(x<=0) {
+			speed=1;
+		}
+		x+=speed;
 	}
 
 	@Override

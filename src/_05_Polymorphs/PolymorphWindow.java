@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -64,6 +66,8 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     Polymorph bluePoly;
     Polymorph redPoly;
     Polymorph movingMorph;
+    Polymorph FollowMorph;
+    Polymorph displayMorph;
     ArrayList<Polymorph> list = new ArrayList<Polymorph>();
     
     public static void main(String[] args) {
@@ -74,6 +78,7 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         window = new JFrame("IT'S MORPHIN' TIME!");
         window.add(this);
         window.getContentPane().setPreferredSize(new Dimension(500, 500));
+        
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setVisible(true);
@@ -81,6 +86,10 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         bluePoly = new BluePolymorph(getX(),getY(),50, 50);
         redPoly = new RedPolymorph(getX(),getY(),50, 50);
         movingMorph = new MovingMorph(getX(),getY(),50,50);
+        FollowMorph = new FollowMorph(getX(),getY(),50,50);
+        displayMorph = new displayMorph(getX(),getY(),50,50);
+        window.addMouseMotionListener((MouseMotionListener) FollowMorph);
+        window.addMouseListener((MouseListener)displayMorph);
         timer = new Timer(1000 / 30, this);
         timer.start();
     }
@@ -92,7 +101,11 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         list.add(bluePoly);
         list.add(redPoly);
         list.add(movingMorph);
-
+        list.add(FollowMorph);
+        list.add(displayMorph);
+        for(Polymorph s: list) {
+        	s.draw(g);
+        }
         // draw polymorph
         
     }
@@ -100,9 +113,9 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
-        bluePoly.update();
-        redPoly.update();
-        movingMorph.update();
+        for(Polymorph s: list) {
+        	s.update();
+        }
 
     }
 }
