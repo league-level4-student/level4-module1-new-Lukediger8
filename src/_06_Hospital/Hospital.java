@@ -14,12 +14,12 @@ public class Hospital {
    
     }
     
-    public int getDoctors() {
-    	return list.size();
+    public ArrayList<Doctor> getDoctors() {
+    	return list;
     }
     
-    public int getPatients() {
-    	return patients.size();
+    public ArrayList<Patient> getPatients() {
+    	return patients;
     }
     public void assignPatientsToDoctors() {
     	

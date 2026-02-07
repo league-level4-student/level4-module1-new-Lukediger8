@@ -3,7 +3,6 @@ package _06_Hospital;
 public class GeneralPractitioner extends Doctor{
 	boolean makesHouseCalls;
 	Patient patient = new Patient();
-	boolean performsSurgery = false;
 	public void makesHouseCalls() {
 		makesHouseCalls = true;
 	}
