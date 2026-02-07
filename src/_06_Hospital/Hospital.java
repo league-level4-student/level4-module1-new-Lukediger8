@@ -14,11 +14,14 @@ public class Hospital {
    
     }
     
-    public void getDoctors() {
-    	
+    public int getDoctors() {
+    	return list.size();
     }
     
-    public void getPatients() {
+    public int getPatients() {
+    	return patients.size();
+    }
+    public void assignPatientsToDoctors() {
     	
     }
 }
