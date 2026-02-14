@@ -1,7 +1,7 @@
 package _06_Hospital;
 
 public class Patient {
-boolean feelsCaredFor;
+private boolean feelsCaredFor;
 int pulse;
 
 
@@ -10,8 +10,8 @@ int pulse;
 	pulse = 0;
 
 }
-	public void feelsCaredFor() {
-		this.feelsCaredFor = true;
+	public boolean feelsCaredFor() {
+		return this.feelsCaredFor;
 	}
 	public void checkPulse() {
 		feelsCaredFor = true;

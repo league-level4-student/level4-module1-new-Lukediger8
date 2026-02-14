@@ -2,14 +2,22 @@ package _06_Hospital;
 
 public class Surgeon extends Doctor{
 	boolean performsSurgery;
+	boolean makesHouseCalls = false;
 	Patient patient = new Patient();
-	public void performsSurgery() {
-	performsSurgery = true;
+	public boolean performsSurgery() {
+	return performsSurgery = true;
+	
 	}
 	@Override
-	public void doMedicine() {
+	public boolean doMedicine() {
+		for(int i = 0; i < patients.size(); i++) {
+			patient.checkPulse();
+		}
+		return doMedicine();
+	}
+	public boolean makesHouseCalls() {
 		// TODO Auto-generated method stub
-		patient.feelsCaredFor();
+		return makesHouseCalls;
 	}
 
 }

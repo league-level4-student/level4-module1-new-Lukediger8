@@ -18,7 +18,7 @@ public abstract class Doctor {
         return patients;
     }
 
-    public abstract void doMedicine();
+    public abstract boolean doMedicine();
 }
     
 
