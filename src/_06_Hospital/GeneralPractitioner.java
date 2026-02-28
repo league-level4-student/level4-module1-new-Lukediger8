@@ -8,13 +8,7 @@ public class GeneralPractitioner extends Doctor{
 		return makesHouseCalls = true;
 	}
 
-	@Override
-	public boolean doMedicine() {
-		for(int i = 0; i < patients.size(); i++) {
-			patient.checkPulse();
-		}
-		return doMedicine();
-	}
+
 	public boolean performsSurgery() {
 		// TODO Auto-generated method stub
 		return performsSurgery;

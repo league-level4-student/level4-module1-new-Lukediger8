@@ -3,7 +3,6 @@ package _06_Hospital;
 import java.util.ArrayList;
 
 public class Hospital {
-	
     ArrayList<Patient> patients = new ArrayList<Patient>();
     ArrayList<Doctor> list = new ArrayList<Doctor>();
     Surgeon surgeon = new Surgeon();
@@ -28,6 +27,17 @@ public class Hospital {
     	return patients;
     }
     public void assignPatientsToDoctors() {
-    	
+    	int j = 0;
+    	for(int i = 0; i < list.size(); i++) {
+			while(j < patients.size()) {
+				try { 
+					list.get(i).assignPatient(patients.get(j));
+					j+=1;
+				
+				} catch(DoctorFullException e) {
+					break;
+				}
+			}
     }
+}
 }
